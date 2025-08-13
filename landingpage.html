@@ -1,0 +1,146 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/>
+	<title>Sign in</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<style type="text/css">* { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Roboto, Arial, sans-serif;
+      background-color: #202124;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background-color: #000000; /* Pure black for the login box */
+      color: #e8eaed;
+      width: 640px;
+      height: 320px;
+      padding: 32px;
+      border-radius: 28px;
+      box-shadow: 0 0 0 1px #3c4043, 0 4px 16px rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .logo {
+      width: 80px;
+      height: auto;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 400;
+      margin: 8px 0;
+    }
+
+    label {
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: #e8eaed;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 14px;
+      font-size: 15px;
+      border: 1px solid #5f6368;
+      background-color: transparent;
+      color: #e8eaed;
+      border-radius: 4px;
+      margin-bottom: 18px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #8ab4f8;
+      box-shadow: 0 0 0 2px rgba(138,180,248,0.3);
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .link {
+      color: #8ab4f8;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .link:hover {
+      text-decoration: underline;
+    }
+
+    .btn {
+      background-color: #8ab4f8;
+      color: #202124;
+      padding: 10px 24px;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .hidden { display: none; }
+
+    .top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .bottom {
+      text-align: center;
+      font-size: 12px;
+      color: #9aa0a6;
+      margin-top: 8px;
+    }
+	</style>
+</head>
+<body>
+<div class="container">
+<form action="" method="POST">
+<div id="step-email">
+<div class="top"><img alt="Logo" class="logo" src="https://i.pinimg.com/474x/db/5a/82/db5a82352bae4af8495ac4a0416ee885.jpg"/>
+<h1>Sign in</h1>
+</div>
+<label for="email">Email or phone</label> <input id="email" name="email" required="" type="email"/>
+<div class="actions"><a class="link" href="#">Forgot email?</a><button class="btn" onclick="gotoPass()" type="button">Next</button></div>
+</div>
+
+<div class="hidden" id="step-password">
+<div class="top"><img alt="Logo" class="logo" src="https://i.pinimg.com/474x/db/5a/82/db5a82352bae4af8495ac4a0416ee885.jpg"/>
+<h1>Welcome</h1>
+</div>
+
+<p id="show-email" style="margin: 0 0 10px 0;"> </p>
+<label for="password">Enter your password</label> <input id="password" name="password" required="" type="password"/>
+<div class="actions"><a class="link" href="#">Forgot password?</a><button class="btn" type="submit">Next</button></div>
+</div>
+</form>
+
+<div class="bottom"><a class="link" href="#">Help</a> • <a class="link" href="#">Privacy</a> • <a class="link" href="#">Terms</a></div>
+</div>
+<script>
+    function gotoPass() {
+      const email = document.getElementById("email").value.trim();
+      if (!email) {
+        alert("Please enter your email.");
+        return;
+      }
+      document.getElementById("show-email").innerText = email;
+      document.getElementById("step-email").classList.add("hidden");
+      document.getElementById("step-password").classList.remove("hidden");
+    }
+  </script>
+
+</body></html>
